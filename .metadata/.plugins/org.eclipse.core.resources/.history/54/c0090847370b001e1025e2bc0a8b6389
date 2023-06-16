@@ -1,0 +1,11 @@
+
+spring.application.name=API-GATEWAY
+server.port=9191
+eureka.instance.client.serviceurl.defaultZone=http://localhost:8761/eureka/
+management.endpoints.web.exposure.include=*
+spring.cloud.netflix.ribbon=true
+
+spring.cloud.gateway.routes[0].id=PRODUCT-SERVICE
+spring.cloud.gateway.routes[0].uri=lb://PRODUCT-SERVICE
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/products/**
+spring.cloud.gateway.routes[0].predicates[1]=Path=/api/products/**
